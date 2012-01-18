@@ -116,6 +116,30 @@ if test "$enable_twitter" != "no"; then
   AC_DEFINE(GOA_TWITTER_ENABLED, 1, [Enable Twitter data provider])
 fi
 
+# Flickr
+AC_ARG_ENABLE([flickr], [AS_HELP_STRING([--enable-flickr], [Enable Flickr provider])], [], [enable_flickr=no])
+AC_ARG_WITH(flickr-consumer-key,
+            [AS_HELP_STRING([--with-flickr-consumer-key],
+                            [Flickr OAuth 1.0 consumer key])],
+                            [],
+                            [])
+AC_ARG_WITH(flickr-consumer-secret,
+            [AS_HELP_STRING([--with-flickr-consumer-secret],
+                            [Flickr OAuth 1.0 consumer secret])],
+                            [],
+                            [])
+if test "$with_flickr_consumer_key" = ""; then
+  with_flickr_consumer_key=not_set
+fi
+if test "$with_flickr_consumer_secret" = ""; then
+  with_flickr_consumer_secret=not_set
+fi
+AC_DEFINE_UNQUOTED(GOA_FLICKR_CONSUMER_KEY, ["$with_flickr_consumer_key"], [Flickr OAuth 1.0 consumer key])
+AC_DEFINE_UNQUOTED(GOA_FLICKR_CONSUMER_SECRET, ["$with_flickr_consumer_secret"], [Flickr OAuth 1.0 consumer secret])
+if test "$enable_flickr" != "no"; then
+  AC_DEFINE(GOA_FLICKR_ENABLED, 1, [Enable Flickr data provider])
+fi
+
 # Yahoo
 AC_ARG_ENABLE([yahoo], [AS_HELP_STRING([--enable-yahoo], [Enable Yahoo provider])], [], [enable_yahoo=no])
 AC_ARG_WITH(yahoo-consumer-key,
@@ -239,6 +263,7 @@ echo "
 
 	Google provider:            ${enable_google} (OAuth 1.0, key:${with_google_consumer_key} secret:${with_google_consumer_secret})
 	Twitter provider:           ${enable_twitter} (OAuth 1.0, key:${with_twitter_consumer_key} secret:${with_twitter_consumer_secret})
+	Flickr provider:            ${enable_flickr} (OAuth 1.0, key:${with_flickr_consumer_key} secret:${with_flickr_consumer_secret})
 	Yahoo provider:             ${enable_yahoo} (OAuth 1.0, key:${with_yahoo_consumer_key} secret:${with_yahoo_consumer_secret})
 	Facebook provider:          ${enable_facebook} (OAuth 2.0, id:${with_facebook_client_id} secret:${with_facebook_client_secret})
 	Windows Live provider:      ${enable_windows_live} (OAuth 2.0, id:${with_windows_live_client_id})

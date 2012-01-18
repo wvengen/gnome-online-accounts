@@ -24,45 +24,19 @@
 #error "Only <goabackend/goabackend.h> can be included directly."
 #endif
 
-#ifndef __GOA_BACKEND_TYPES_H__
-#define __GOA_BACKEND_TYPES_H__
+#ifndef __GOA_FLICKR_PROVIDER_H__
+#define __GOA_FLICKR_PROVIDER_H__
 
-#include <goa/goa.h>
-#include <goabackend/goabackendenums.h>
-#include <gtk/gtk.h>
+#include <goabackend/goabackendtypes.h>
 
 G_BEGIN_DECLS
 
-struct _GoaProvider;
-typedef struct _GoaProvider GoaProvider;
+#define GOA_TYPE_FLICKR_PROVIDER   (goa_flickr_provider_get_type ())
+#define GOA_FLICKR_PROVIDER(o)     (G_TYPE_CHECK_INSTANCE_CAST ((o), GOA_TYPE_FLICKR_PROVIDER, GoaFlickrProvider))
+#define GOA_IS_FLICKR_PROVIDER(o)  (G_TYPE_CHECK_INSTANCE_TYPE ((o), GOA_TYPE_FLICKR_PROVIDER))
 
-struct _GoaOAuthProvider;
-typedef struct _GoaOAuthProvider GoaOAuthProvider;
-
-struct _GoaOAuth2Provider;
-typedef struct _GoaOAuth2Provider GoaOAuth2Provider;
-
-struct _GoaGoogleProvider;
-typedef struct _GoaGoogleProvider GoaGoogleProvider;
-
-struct _GoaFacebookProvider;
-typedef struct _GoaFacebookProvider GoaFacebookProvider;
-
-struct _GoaYahooProvider;
-typedef struct _GoaYahooProvider GoaYahooProvider;
-
-struct _GoaTwitterProvider;
-typedef struct _GoaTwitterProvider GoaTwitterProvider;
-
-struct _GoaFlickrProvider;
-typedef struct _GoaFlickrProvider GoaFlickrProvider;
-
-struct _GoaEditableLabel;
-typedef struct _GoaEditableLabel GoaEditableLabel;
-
-struct _GoaWindowsLiveProvider;
-typedef struct _GoaWindowsLiveProvider GoaWindowsLiveProvider;
+GType goa_flickr_provider_get_type (void) G_GNUC_CONST;
 
 G_END_DECLS
 
-#endif /* __GOA_BACKEND_TYPES_H__ */
+#endif /* __GOA_FLICKR_PROVIDER_H__ */
