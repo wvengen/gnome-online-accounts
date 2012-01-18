@@ -1,6 +1,7 @@
 /* -*- mode: C; c-file-style: "gnu"; indent-tabs-mode: nil; -*- */
 /*
  * Copyright (C) 2011 Red Hat, Inc.
+ * Copyright (C) 2012 Willem van Engen <gnome@willem.engen.nl>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -18,6 +19,7 @@
  * Boston, MA 02111-1307, USA.
  *
  * Author: David Zeuthen <davidz@redhat.com>
+ * Adapted for Flickr by: Willem van Engen <gnome@willem.engen.nl>
  */
 
 #if !defined (__GOA_BACKEND_INSIDE_GOA_BACKEND_H__) && !defined (GOA_BACKEND_COMPILATION)
