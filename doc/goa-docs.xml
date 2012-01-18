@@ -151,6 +151,7 @@
       <xi:include href="xml/goafacebookprovider.xml"/>
       <xi:include href="xml/goayahooprovider.xml"/>
       <xi:include href="xml/goatwitterprovider.xml"/>
+      <xi:include href="xml/goaflickrprovider.xml"/>
     </chapter>
   </part>
 
