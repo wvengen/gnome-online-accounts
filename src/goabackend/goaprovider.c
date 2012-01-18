@@ -30,6 +30,7 @@
 #include "goafacebookprovider.h"
 #include "goayahooprovider.h"
 #include "goatwitterprovider.h"
+#include "goaflickrprovider.h"
 #include "goawindowsliveprovider.h"
 
 #include "goaeditablelabel.h"
@@ -593,6 +594,9 @@ ensure_ep_and_builtins (void)
 #endif
 #ifdef GOA_TWITTER_ENABLED
       type = GOA_TYPE_TWITTER_PROVIDER;
+#endif
+#ifdef GOA_FLICKR_ENABLED
+      type = GOA_TYPE_FLICKR_PROVIDER;
 #endif
 #ifdef GOA_FACEBOOK_ENABLED
       type = GOA_TYPE_FACEBOOK_PROVIDER;
