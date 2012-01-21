@@ -116,6 +116,17 @@ get_callback_uri (GoaOAuthProvider *provider)
   return "https://www.gnome.org/goa-1.0/oauth";
 }
 
+static gchar *
+build_authorization_uri (GoaOAuthProvider *provider,
+                         const gchar *authorization_uri,
+                         const gchar *escaped_oauth_token)
+{
+  return g_strdup_printf ("%s"
+                          "?oauth_token=%s&perms=read",
+                          authorization_uri,
+                          escaped_oauth_token);
+}
+
 /* ---------------------------------------------------------------------------------------------------- */
 
 static gchar *
@@ -311,4 +322,5 @@ goa_flickr_provider_class_init (GoaFlickrProviderClass *klass)
   oauth_class->get_token_uri            = get_token_uri;
   oauth_class->get_callback_uri         = get_callback_uri;
   oauth_class->get_use_external_browser = get_use_external_browser;
+  oauth_class->build_authorization_uri  = build_authorization_uri;
 }
